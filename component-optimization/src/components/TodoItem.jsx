@@ -4,6 +4,9 @@ export default function TodoItem({
     isCompleted,
     onToggle
 }){
+
+    console.log(`${text} -> re-renders`)
+
     return (
         <li onClick={() => onToggle(id)} style={isCompleted ? { textDecoration: 'line-through'} : {}}>
             {
