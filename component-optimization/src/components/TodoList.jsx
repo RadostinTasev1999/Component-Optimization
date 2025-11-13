@@ -1,5 +1,6 @@
 import TodoItem from "./TodoItem"
 import { useState } from "react"
+import React from 'react'
 
 const initialTodos = [
     { id: 1,text: 'Do homework', isCompleted: false},
@@ -7,7 +8,7 @@ const initialTodos = [
     { id: 3, text: 'Fitness', isCompleted: false}
 ]
 
-export default function TodoList(){
+function TodoList(){
 
     const [ todos, setTodos ] = useState(initialTodos)
 
@@ -28,3 +29,5 @@ export default function TodoList(){
         </>
    )
 }
+
+export default React.memo(TodoList)
