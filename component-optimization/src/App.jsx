@@ -6,6 +6,10 @@ import { useState } from 'react'
 function App() {
 
   const [count, setCount] = useState(0)
+
+  const incrementCounterHandler = () => {
+    setCount(c => c + 1)
+  }
   
   return (
     <>
@@ -13,7 +17,7 @@ function App() {
 
       <TodoList />
 
-      <Counter count={count} setCount={setCount} />
+      <Counter count={count} increment={incrementCounterHandler} />
     </>
   )
 }
