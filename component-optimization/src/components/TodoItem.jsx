@@ -1,4 +1,6 @@
-export default function TodoItem({
+import { memo } from "react"
+
+function TodoItem({
     id,
     text,
     isCompleted,
@@ -15,3 +17,5 @@ export default function TodoItem({
         </li>
     )
 }
+
+export default memo(TodoItem)
