@@ -1,7 +1,5 @@
 import TodoItem from "./TodoItem"
 import { useState, useCallback } from "react"
-import React from 'react'
-import { useMemo } from "react"
 
 
 const initialTodos = [
@@ -10,43 +8,43 @@ const initialTodos = [
     { id: 3, text: 'Fitness', isCompleted: false}
 ]
 
-function TodoList(){
+export default function TodoList(){
 
     const [ todos, setTodos ] = useState(initialTodos)
 
-    const toggleTodoHandler = useCallback((todoId) => {
+    const toggleTodoHandler = (todoId) => {
         console.log('TodoId is:', todoId )
 
         setTodos(state => state.map(todo => todoId === todo.id ? {...todo, isCompleted: !todo.isCompleted} : todo))
-    },[])
+    }
 
 /*
     useMemo is a React Hook that lets you cache result of a calculation between re-renders.
 */
-    const heavyCalculation = useMemo(() => {
-      //Heavy calculation
+    // const calculateMeaningOfLife = () => {
+    //   //Heavy calculation
 
-      function pauseComp(ms) {
-        var curr = new Date().getTime(); //It gets the current time in milliseconds since the Unix epoch and stores it in the curr variable.
-        ms += curr; // It calculates the target end time by adding the desired pause duration (ms) to the current time (curr).
-        while(curr < ms){
-          curr = new Date().getTime()
-        }
-        /*
-        This is the core of the pause mechanism. The program enters a while loop that continuously checks the current time. 
-        It stays in this loop, doing nothing but repeatedly fetching the current time, until the current time (curr) is equal to or greater than the calculated end time (ms).
-        */
-      }
+    //   function pauseComp(ms) {
+    //     var curr = new Date().getTime(); //It gets the current time in milliseconds since the Unix epoch and stores it in the curr variable.
+    //     ms += curr; // It calculates the target end time by adding the desired pause duration (ms) to the current time (curr).
+    //     while(curr < ms){
+    //       curr = new Date().getTime()
+    //     }
+    //     /*
+    //     This is the core of the pause mechanism. The program enters a while loop that continuously checks the current time. 
+    //     It stays in this loop, doing nothing but repeatedly fetching the current time, until the current time (curr) is equal to or greater than the calculated end time (ms).
+    //     */
+    //   }
 
-      pauseComp(1000)
-      /*
-      The line pauseComp(1000) calls the function to pause the program's execution for 1000 milliseconds (1 second).
-      */
+    //   pauseComp(1000)
+    //   /*
+    //   The line pauseComp(1000) calls the function to pause the program's execution for 1000 milliseconds (1 second).
+    //   */
 
-      return 42;
-    },[])
+    //   return 42;
+    // }
 
-    
+    const meaningOfLife = 42;
 
 
     return (
@@ -58,9 +56,8 @@ function TodoList(){
                 }
             </ul>
 
-            <p>Meaning of life: { heavyCalculation }</p>
+            <p>Meaning of life: { meaningOfLife }</p>
         </>
    )
 }
 
-export default React.memo(TodoList)
