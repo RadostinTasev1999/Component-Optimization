@@ -1,11 +1,6 @@
-// import { useState } from "react"
-import React from 'react'
-
-function Counter({ count, increment}){
+export default function Counter({ count, increment}){
 
     // const [count, setCount] = useState(0);
-
-  
 
     return (
         <>
@@ -16,8 +11,6 @@ function Counter({ count, increment}){
     )
 }
 
-
-export default React.memo(Counter);
 /*
 We wrap the component in memo to get a memoized version of that component
 This returns a new React component
